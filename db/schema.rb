@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 20170822121922) do
 
   create_table "kats", force: :cascade do |t|
+    t.string "title"
     t.string "img"
-    t.integer "upvote"
-    t.integer "downvote"
+    t.integer "upvotes"
+    t.integer "downvotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

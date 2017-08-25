@@ -1,9 +1,11 @@
 class Kat < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
-  validates :img, presence: true
+  validates :title, presence: true
+
+  mount_uploader :img, ImageUploader
 
   def set_defaults
-    self.upvote = 0
-    self.downvote = 0
+    self.upvotes = 0
+    self.downvotes = 0
   end
 end
