@@ -1,4 +1,5 @@
 class Kat < ApplicationRecord
+  # before_action :authenticate_user (revisar si esta autenticado creo lel)
   after_initialize :set_defaults, unless: :persisted?
   validates :title, presence: true
 

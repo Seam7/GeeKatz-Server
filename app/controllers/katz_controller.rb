@@ -40,6 +40,5 @@ class KatzController < ApplicationController
 
   def set_kat
     @kat = Kat.find(params[:id])
-    @kat.img.url = 'http://localhost:3000' + @kat.img.url
   end
 end
