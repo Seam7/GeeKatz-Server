@@ -1,6 +1,8 @@
 
 class KatzController < ApplicationController
+  before_action :authenticate_user #(revisar si esta autenticado creo lel)
   before_action :set_kat, only: [:show, :update, :destroy]
+
 
   # GET /todos
   def index
@@ -10,7 +12,7 @@ class KatzController < ApplicationController
 
   # POST /todos
   def create
-    @kat = Kat.create!(kat_params)
+    @kat = Kat.create!(kat_params) #Revisar como crear usando el current user
     json_response(@kat, :created)
   end
 
@@ -35,7 +37,7 @@ class KatzController < ApplicationController
 
   def kat_params
     # whitelist params
-    params.permit(:title, :img)
+    params.permit(:title, :img, :user)
   end
 
   def set_kat
