@@ -1,6 +1,6 @@
 
 class KatzController < ApplicationController
-  before_action :authenticate_user #(revisar si esta autenticado creo lel)
+  before_action :authenticate_user
   before_action :set_kat, only: [:show, :update, :destroy]
 
 
@@ -12,7 +12,7 @@ class KatzController < ApplicationController
 
   # POST /todos
   def create
-    @kat = Kat.create!(kat_params) #Revisar como crear usando el current user
+    @kat = current_user.uploads.create!(kat_params)
     json_response(@kat, :created)
   end
 
